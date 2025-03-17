@@ -6,7 +6,7 @@ VENV_DIR = 'venv'
 stages { 
 stage('Checkout') { 
 steps { 
-git branch: 'master', url: 'https://github.com/Beni25-mak/ci-test-pipeline.git' 
+git branch: 'main', url: 'https://github.com/Beni25-mak/ci-test-pipeline.git' 
 } 
 } 
 stage('Setup') { 
@@ -39,3 +39,6 @@ to: 'benimakumbu24@gmail.com'
 } 
 } 
 } 
+
+// ne me deçois pas mon test
+// j'ai confiance
