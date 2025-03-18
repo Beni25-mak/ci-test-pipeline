@@ -1,6 +1,7 @@
 pipeline { 
     agent any 
     environment { 
+        DEFAULT_RECIPIENTS = 'benimakumbu24@gmail.com,emmanzimba@gmail.com,nzimbabeni@gmail.com'
         VENV_DIR = 'venv' 
     } 
     stages { 
@@ -26,7 +27,7 @@ pipeline {
                 def result = currentBuild.result ?: 'SUCCESS' 
             emailext subject: "Jenkins Build: ${result}", 
                 body: "Build Status: ${result}\nVoir Jenkins: ${env.BUILD_URL}", 
-                to: 'benimakumbu24@gmail.com' 
+                to: env.DEFAULT_RECIPIENTS 
             } 
         } 
     } 
@@ -35,7 +36,8 @@ pipeline {
         failure { 
             emailext subject: "Echec du build Jenkins", 
             body: "Echec du pipeline : ${env.BUILD_URL}", 
-            to: 'benimakumbu24@gmail.com' 
+            // to: 'benimakumbu24@gmail.com' 
+            to:env.DEFAULT_RECIPIENTS
         } 
     } 
 } 
